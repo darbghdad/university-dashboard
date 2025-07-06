@@ -1,0 +1,294 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  background-color: #f4f4f4;
+}
+
+/* الحاوية العامة */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* الهيدر */
+header {
+  background-color: #1a3d7e;
+  color: white;
+  padding: 20px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #3949ab;
+}
+
+.login-btn {
+  background-color: #ffca28;
+  color: #1a237e;
+  font-weight: bold;
+}
+
+/* قسم البطل */
+.hero {
+  background: linear-gradient(rgba(26, 35, 126, 0.7), rgba(26, 35, 126, 0.7)),
+              url('https://images.unsplash.com/photo-1581093588401-09be1fdd72f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.hero-buttons .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #ffca28;
+  color: #1a237e;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.btn-alt {
+  background-color: white;
+  color: #1a237e;
+}
+
+/* قسم البحث */
+.search-section {
+  background-color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.search-section input,
+.search-section select,
+.search-section button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search-section button {
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* الفوتر */
+footer {
+  background-color: #1a237e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+.page-title {
+  background-color: #e8eaf6;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.university-list {
+  padding: 40px 20px;
+}
+
+.university-card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.university-card img {
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
+.card-content h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.card-content p {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.btn.small {
+  font-size: 14px;
+  padding: 6px 12px;
+}
+.university-detail {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.detail-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.detail-card img {
+  width: 150px;
+  height: 150px;
+  margin-left: 30px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.detail-content {
+  flex: 1;
+}
+
+.detail-content h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.detail-content p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.detail-content .btn.small {
+  display: inline-block;
+  margin-top: 20px;
+}
+.departments-list {
+  padding: 40px 20px;
+}
+
+.department-group {
+  list-style-type: disc;
+  padding-right: 20px;
+  margin-bottom: 30px;
+}
+
+.department-group li {
+  font-size: 16px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.department-detail {
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.department-detail h3 {
+  margin-top: 30px;
+  color: #1a237e;
+}
+
+.department-detail p,
+.department-detail ul {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.department-detail ul {
+  list-style-type: disc;
+  padding-right: 20px;
+}
+/* تنسيق روابط الأقسام */
+.department-group li a {
+  color: #1a237e;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.department-group li a:hover {
+  background-color: #e8eaf6;
+  text-decoration: underline;
+}
+.apply-form {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.apply-form form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.apply-form label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.apply-form input,
+.apply-form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.apply-form button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 12px;
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.apply-form button:hover {
+  background-color: #3949ab;
+}
