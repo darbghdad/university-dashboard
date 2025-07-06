@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>نموذج تقديم الطالب</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- الهيدر -->
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">منصة الجامعات الأهلية</h1>
+      <nav class="navbar">
+        <a href="index.html">الرئيسية</a>
+        <a href="universities.html">الجامعات</a>
+        <a href="departments.html">الأقسام</a>
+        <a href="apply.html" class="active">تواصل معنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- العنوان -->
+  <section class="page-title">
+    <div class="container">
+      <h2>نموذج تقديم الطالب</h2>
+      <p>املأ المعلومات التالية لإرسال طلبك</p>
+    </div>
+  </section>
+
+  <!-- نموذج التقديم -->
+  <section class="apply-form">
+    <div class="container">
+      <form id="apply-form">
+        <label>الاسم الثلاثي:</label>
+        <input type="text" name="fullname" required>
+
+        <label>الرقم الامتحاني:</label>
+        <input type="text" name="exam_id" required placeholder="مثال: 123456">
+        <small style="color: gray;">الرقم الامتحاني يجب أن يتكون من 6 أرقام فقط</small>
+        
+        <label>الفرع الدراسي:</label>
+        <select name="branch" required>
+          <option value="">-- اختر الفرع --</option>
+          <option value="علمي">علمي</option>
+          <option value="أدبي">أدبي</option>
+          <option value="تطبيقي">تطبيقي</option>
+        </select>
+
+        <label>المعدل:</label>
+        <input type="number" name="average" min="50" max="100" required placeholder="مثال: 85">
+        <small style="color: gray;">يجب أن يكون المعدل بين 50 و100</small>
+
+        <label>رقم الهاتف:</label>
+        <input type="tel" name="phone" required placeholder="مثال: 7701234567">
+        <small style="color: gray;">اكتب رقم الهاتف بدون مفتاح الدولة (مثلاً: 7701234567) وسيُضاف المفتاح +964 تلقائيًا</small>
+
+        <label>الجامعة المرغوبة:</label>
+        <select name="university" required>
+          <option value="">-- اختر الجامعة --</option>
+          <option value="جامعة الإمام الصادق">جامعة الإمام الصادق</option>
+          <option value="جامعة الكفيل">جامعة الكفيل</option>
+          <option value="جامعة العين">جامعة العين</option>
+        </select>
+
+        <label>القسم المرغوب:</label>
+        <select name="section" required>
+          <option value="">-- اختر القسم --</option>
+          <option value="طب">طب</option>
+          <option value="طب أسنان">طب أسنان</option>
+          <option value="صيدلة">صيدلة</option>
+          <option value="هندسة مدنية">هندسة مدنية</option>
+          <option value="قانون">قانون</option>
+          <option value="إدارة أعمال">إدارة أعمال</option>
+        </select>
+        <small style="color: gray;">⚠️ تأكد أن معدلك يطابق متطلبات القسم المختار</small>
+
+        <button type="submit" class="btn">إرسال الطلب</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <footer>
+    <div class="container">
+      <p>© 2025 منصة الجامعات الأهلية - جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <!-- كود جافاسكربت بعد تحميل الصفحة -->
+ <script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbx778P1muXOo6pd8zpa4ae4nEYRn61X7jDl1wl_I0b1dg66fwBMupVM5Oikksioio5r/exec";
+
+  // الحد الأدنى لكل قسم
+  const departmentRequirements = {
+    "طب": 95,
+    "طب أسنان": 93,
+    "صيدلة": 90,
+    "هندسة مدنية": 85,
+    "قانون": 70,
+    "إدارة أعمال": 65
+  };
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('apply-form');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      // قراءة البيانات
+      const fullname = form.fullname.value.trim();
+      const exam_id = form.exam_id.value.trim();
+      const branch = form.branch.value;
+      const average = parseFloat(form.average.value);
+      const rawPhone = form.phone.value.trim();
+      const university = form.university.value;
+      const section = form.section.value;
+
+      // التحقق من المعدل حسب القسم
+      const requiredAvg = departmentRequirements[section];
+      if (requiredAvg && average < requiredAvg) {
+        alert(`❌ لا يمكن التقديم على قسم "${section}" لأن المعدل أقل من ${requiredAvg}`);
+        return;
+      }
+
+      // معالجة الهاتف
+      const cleanedPhone = rawPhone.startsWith("0") ? rawPhone.slice(1) : rawPhone;
+      const phoneWithCode = "+964" + cleanedPhone;
+
+      // بناء البيانات
+      const data = {
+        fullname,
+        exam_id,
+        branch,
+        average,
+        phone: phoneWithCode,
+        university,
+        section
+      };
+
+      // إرسال البيانات
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        alert("✅ تم إرسال الطلب بنجاح");
+        form.reset();
+      })
+      .catch(error => {
+        alert("❌ حدث خطأ أثناء الإرسال: " + error.message);
+      });
+    });
+  });
+</script>
+</body>
+</html>
